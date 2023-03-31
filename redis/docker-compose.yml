@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  redis:
+    image: redis:7.0-alpine
+    volumes:
+      - redis:/redis:/data
+    networks:
+      - redis
+
+networks:
+  redis:
+    name: redis
+
+volumes:
+  redis:
