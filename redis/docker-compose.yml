@@ -6,7 +6,7 @@ services:
     restart: unless-stopped
     image: redis:7.0-alpine
     volumes:
-      - redis:/data
+      - 'redis:/data'
     networks:
       - redis
 
