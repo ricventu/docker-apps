@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  gitlab-runner:
+    container_name: gitlab-runner
+    image: gitlab/gitlab-runner:latest
+    restart: unless-stopped
+    volumes:
+      - 'gitlab-runner-config:/etc/gitlab-runner'
