@@ -13,7 +13,6 @@ services:
       - gateway
     labels:
       - "traefik.enable=true"
-
       - "traefik.http.routers.mail.rule=Host(`mail.${DOMAIN}`)"
       - "traefik.http.routers.mail.service=mail"
       - "traefik.http.services.mail.loadbalancer.server.port=8025"
