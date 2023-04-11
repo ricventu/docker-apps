@@ -10,7 +10,7 @@ services:
       - --entrypoints.websecure.address=:443
       - --api.dashboard=true
       - --providers.docker
-      - --providers.docker.exposedByDefault=true
+      - --providers.docker.exposedByDefault=false
       - --providers.docker.network=gateway
       - --log.level=ERROR
       - --certificatesresolvers.leresolver.acme.httpchallenge=true
@@ -32,7 +32,6 @@ services:
 
       # DASHBOARD
       - "traefik.enable=true"
-
       - "traefik.http.routers.traefik.rule=Host(`traefik.${DOMAIN:-localhost}`)"
       - "traefik.http.routers.traefik.service=api@internal"
       - "traefik.http.routers.traefik.entrypoints=websecure"

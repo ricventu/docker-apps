@@ -12,6 +12,18 @@ services:
       - mailpit
       - gateway
 
+    labels:
+      - "traefik.enable=true"
+
+      - "traefik.http.routers.mail.rule=Host(`mail.${WEB_HOST}`)"
+      - "traefik.http.routers.mail.service=mail"
+      - "traefik.http.services.mail.loadbalancer.server.port=8025"
+      - "traefik.http.routers.mail.entrypoints=websecure"
+      - "traefik.http.routers.mail.tls.certresolver=leresolver"
+      - "traefik.http.routers.mail.middlewares=mail-auth"
+      - "traefik.http.middlewares.mail-auth.digestauth.usersfile=/users_credentials"
+      - "traefik.http.services.mail.loadbalancer.server.port=8080"
+
 networks:
   mailpit:
     name: mailpit
