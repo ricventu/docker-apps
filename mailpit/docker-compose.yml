@@ -11,7 +11,8 @@ services:
     networks:
       - mailpit
       - gateway
-
+    volumes:
+      - "./users_credentials:/users_credentials:ro"
     labels:
       - "traefik.enable=true"
 
