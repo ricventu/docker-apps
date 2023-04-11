@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  mailpit:
+    container_name: mailpit
+    image: axllent/mailpit:latest
+    restart: unless-stopped
+    ports:
+      - '${FORWARD_MAILPIT_PORT:-1025}:1025'
+      - '${FORWARD_MAILPIT_DASHBOARD_PORT:-8025}:8025'
+    networks:
+      - mailpit
+
+networks:
+  mailpit:
+    name: mailpit
