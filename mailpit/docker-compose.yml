@@ -18,8 +18,7 @@ services:
       - "traefik.http.services.mail.loadbalancer.server.port=8025"
       - "traefik.http.routers.mail.entrypoints=websecure"
       - "traefik.http.routers.mail.tls.certresolver=leresolver"
-      - "traefik.http.routers.mail.middlewares=mail-auth"
-      - "traefik.http.middlewares.mail-auth.digestauth.users=${DIGESTAUTH_USERS}"
+      - "traefik.http.routers.mail.middlewares=traefik-auth"
 
 networks:
   mailpit:
