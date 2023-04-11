@@ -10,7 +10,10 @@ services:
       - '${FORWARD_MAILPIT_DASHBOARD_PORT:-8025}:8025'
     networks:
       - mailpit
+      - gateway
 
 networks:
   mailpit:
     name: mailpit
+  gateway:
+    external: true
