@@ -20,7 +20,7 @@ services:
       - "traefik.http.routers.mail.entrypoints=websecure"
       - "traefik.http.routers.mail.tls.certresolver=leresolver"
       - "traefik.http.routers.mail.middlewares=mail-auth"
-      - "traefik.http.middlewares.mail-auth.digestauth.usersfile=/users_credentials"
+      - "traefik.http.middlewares.mail-auth.digestauth.users="
 
 networks:
   mailpit:

@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := up
 
 config:
-	cp ../portainer-traefik/.env .env
+	if [ ! -f ./.env ]; then cp .env.example .env; fi
 
 up: config
 	docker-compose up -d
