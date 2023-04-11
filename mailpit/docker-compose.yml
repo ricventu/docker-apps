@@ -11,8 +11,6 @@ services:
     networks:
       - mailpit
       - gateway
-    volumes:
-      - "./users_credentials:/users_credentials:ro"
     labels:
       - "traefik.enable=true"
 
@@ -23,7 +21,6 @@ services:
       - "traefik.http.routers.mail.tls.certresolver=leresolver"
       - "traefik.http.routers.mail.middlewares=mail-auth"
       - "traefik.http.middlewares.mail-auth.digestauth.usersfile=/users_credentials"
-      - "traefik.http.services.mail.loadbalancer.server.port=8080"
 
 networks:
   mailpit:
