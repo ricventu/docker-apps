@@ -1,3 +1,4 @@
+# https://docs.gitlab.com/runner/install/docker.html
 version: '3'
 
 services:
@@ -7,3 +8,4 @@ services:
     restart: unless-stopped
     volumes:
       - 'gitlab-runner-config:/etc/gitlab-runner'
+      - '/var/run/docker.sock:/var/run/docker.sock'
