@@ -16,9 +16,7 @@ services:
       - "traefik.http.routers.mail.entrypoints=websecure"
       - "traefik.http.routers.mail.tls.certresolver=leresolver"
       - "traefik.http.routers.mail.middlewares=mailpit-auth"
-      # https://doc.traefik.io/traefik/middlewares/http/digestauth/
-      # htdigest users_credentials traefik admin
-      - "traefik.http.middlewares.mailpit-auth.digestauth.usersfile=/users_credentials"
+      - "traefik.http.middlewares.mailpit-auth.basicauth.usersfile=/users_credentials"
     volumes:
       - "./users_credentials:/users_credentials:ro"
 
