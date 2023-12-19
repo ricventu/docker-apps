@@ -4,7 +4,7 @@ config:
 	cp ../portainer-traefik/.env .
 	if [ ! -f ./users_credentials ]; then \
 		touch ./users_credentials && chmod 600 ./users_credentials && \
-		htpasswd -c user_credentials admin \
+		htpasswd -c users_credentials admin \
 	;fi
 
 up: config
