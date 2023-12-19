@@ -17,8 +17,6 @@ services:
       - "traefik.http.routers.mail.tls.certresolver=leresolver"
       - "traefik.http.routers.traefik.middlewares=traefik-auth"
       - "traefik.http.middlewares.traefik-auth.digestauth.usersfile=/users_credentials"
-    volumes:
-      - "./users_credentials:/users_credentials:ro"
 
 networks:
   mailpit:
