@@ -18,6 +18,7 @@ services:
       - "traefik.http.routers.mail.middlewares=mailpit-auth"
       # https://doc.traefik.io/traefik/middlewares/http/digestauth/
       # htdigest users_credentials traefik admin
+      - "traefik.http.middlewares.test-auth.basicauth.realm=mailpit"
       - "traefik.http.middlewares.mailpit-auth.digestauth.usersfile=/users_credentials"
     volumes:
       - "./users_credentials:/users_credentials:ro"
