@@ -31,7 +31,7 @@ services:
       - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
 
       # DASHBOARD
-      - "traefik.enable=${TRAEFIK_DASHBOARD:-false}"
+      - "traefik.enable=${ENABLE_TRAEFIK:-false}"
       - "traefik.http.routers.traefik.rule=Host(`traefik.${DOMAIN:-localhost}`)"
       - "traefik.http.routers.traefik.service=api@internal"
       - "traefik.http.routers.traefik.entrypoints=websecure"
