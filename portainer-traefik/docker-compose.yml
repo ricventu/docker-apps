@@ -32,7 +32,6 @@ services:
 
       # DASHBOARD
       - "traefik.enable=true"
-      - "traefik.api.dashboard=${TRAEFIK_DASHBOARD:-false}"
       - "traefik.http.routers.traefik.rule=Host(`traefik.${DOMAIN:-localhost}`)"
       - "traefik.http.routers.traefik.service=api@internal"
       - "traefik.http.routers.traefik.entrypoints=websecure"
