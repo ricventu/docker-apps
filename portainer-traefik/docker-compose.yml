@@ -37,6 +37,7 @@ services:
       - "traefik.http.routers.traefik.middlewares=traefik-auth"
       # https://doc.traefik.io/traefik/middlewares/http/digestauth/
       # htdigest users_credentials traefik admin
+      - "traefik.http.middlewares.traefik-auth.digestauth.realm=${REALM:-traefik}"
       - "traefik.http.middlewares.traefik-auth.digestauth.usersfile=/users_credentials"
       - "traefik.http.services.traefik.loadbalancer.server.port=8080"
 
