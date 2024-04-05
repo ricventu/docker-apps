@@ -9,10 +9,10 @@ config:
 	;fi
 
 up: config
-	docker-compose up -d
+	docker compose up -d
 
 down:
-	docker-compose down
+	docker compose down
 
 traefik: config
-	docker-compose up -d traefik
+	docker compose up -d traefik
